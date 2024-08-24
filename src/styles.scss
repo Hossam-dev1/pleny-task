@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+:root {
+  --primary-color: #41CCCC;
+  --label-color: #344054;
+  --text-color: #667085;
+}
+
+
+input[type="radio"] {
+  appearance: none; // Removes the default styling of the radio button
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00bcd4; // Border color for unselected state
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+
+  // Background color for unselected state
+  background-color: #fff;
+
+  &:checked {
+    background-color: #00bcd4; // Change this to the color you want when checked
+    border-color: #00bcd4;
+  }
+
+  // Inner dot when checked
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff; // Inner dot color
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:checked::before {
+    transform: translate(-50%, -50%) scale(1); // Shows the inner dot when checked
+  }
+}

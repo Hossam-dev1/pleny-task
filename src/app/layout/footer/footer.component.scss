@@ -1,0 +1,36 @@
+footer {
+  height: 128px;
+  width: 100%;
+  background-color: rgba(29, 41, 57, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #999;
+
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 4rem;
+    color: white;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .footer-text {
+      p {
+        margin: 0;
+        color: #98A2B3;
+      }
+    }
+  }
+}

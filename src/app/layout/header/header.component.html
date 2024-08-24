@@ -1,0 +1,44 @@
+<header>
+  <div class="container">
+    <div class="content">
+      <div class="navbar">
+        <div class="logo">
+          <img src="assets/icons/logo.png" alt="logo">
+          <span class="logo-text">Click Tik</span>
+        </div>
+
+        <div class="nav-items">
+          <ul>
+            <a [routerLink]="['/products-list']">
+              <li>Home</li>
+            </a>
+          </ul>
+        </div>
+      </div>
+
+
+      <div *ngIf="!isAuthenticated" class="auth">
+        <a [routerLink]="['/login']">
+          Login
+        </a>
+      </div>
+
+
+      <div *ngIf="isAuthenticated" class="header-container ">
+        <div class="search-box">
+          <img src="assets/icons/search.png" alt="search" />
+          <input (keyup)="onSearchProducts($event)" type="text" placeholder="Search" [(ngModel)]="searchTerm"  />
+        </div>
+        <div class="cart-account">
+          <div class="cart-icon">
+            <img src="assets/icons/cart.png" alt="">
+            <span class="cart-count">{{cartCounter}}</span>
+          </div>
+          <div class="account-text">
+            <span>Account</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,31 @@
+<section class="login">
+  <div class="container">
+    <div class="logo">
+      <img src="assets/icons/logo.png" alt="logo">
+    </div>
+    <div class="content">
+      <div class="details">
+        <h3>Log in to your account</h3>
+        <p>Welcome back! Please enter your details.</p>
+      </div>
+      <div class="alert" *ngIf="errorMsg">
+        <p class="alert-text">Invalid credentials</p>
+      </div>
+      <div class="form">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="input-box">
+            <label for="email">User Name</label>
+            <input formControlName="username" type="email" id="email" placeholder="Enter email address"
+              [ngClass]="{'is-invalid': loginForm.get('username')?.touched && loginForm.get('username')?.invalid}">
+          </div>
+          <div class="input-box">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" id="password" placeholder="Enter password"
+              [ngClass]="{'is-invalid': loginForm.get('password')?.touched && loginForm.get('password')?.invalid}">
+          </div>
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

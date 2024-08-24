@@ -1,0 +1,61 @@
+<section class="product_list">
+  <div class="container">
+    <div class="header">
+      <h1>{{searchedProduct}}</h1>
+      <nav class="breadcrumb">
+        <a href="#">Home</a> /
+        <a [routerLink]="['/products-list']">Products</a>
+        @if (selecteCategory) {
+        / <a href="#">{{selecteCategory}}</a>
+        }
+        @if(searchedProduct){
+        / <a>{{searchedProduct}}</a>
+        }
+        <!-- <span>iPhone</span> -->
+      </nav>
+    </div>
+
+    <div class="grid">
+      <div class="sidebar">
+        <h3 class="title">Categories</h3>
+        <div class="category">
+          <div class="radio-group">
+            <input (click)="onFilterByCategory('')" type="radio" id="all" name="color" value="All"
+              [checked]="selecteCategory === ''">
+            <label for="all">All</label>
+          </div>
+          @for (item of categoryList; track $index) {
+          <div class="radio-group">
+            <input (click)="onFilterByCategory(item.slug)" type="radio" [id]="item.slug" name="color"
+              [value]="item.name" [checked]="selecteCategory === item.slug">
+            <label [for]="item.slug">{{item.name}}</label>
+          </div>
+          }@empty {
+          <p>Category list is loading ...</p>
+          }
+        </div>
+      </div>
+
+      <div class="products">
+        @for (item of productList; track $index) {
+        <app-product-card [product]="item"></app-product-card>
+        }@empty {
+        <p>Product list is loading ...</p>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button (click)="onPageChange('prev', 1)" class="page-btn prev-btn" aria-label="Previous">
+      <span>&lt;</span>
+    </button>
+    <!-- pagination is not handled from backend  -->
+    <button class="page-btn active">1</button>
+
+    <button (click)="onPageChange('next', 2)" class="page-btn next-btn" aria-label="Next">
+      <span>&gt;</span>
+    </button>
+  </div>
+
+</section>
